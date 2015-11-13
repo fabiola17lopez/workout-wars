@@ -1,0 +1,16 @@
+{% extends "site_base.html" %}
+
+{% block head_title %} Workout Submission {% endblock %}
+
+{% block body %}
+
+<h1> Workout Submission </h1>
+
+{% if message %}
+<pre><strong>{{ message }}</strong></pre>
+{% endif %}
+
+See your workout on the <a href="{% url workout_list %}">Workout List</a>.
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block body_class %}profile{% endblock %}
+
+{% block body_base %} 
+<div class="container">
+  {% include "_messages.html" %}
+  <div class="row">
+    <div class="span8 columns">
+      {% block subnav %}
+        {% if user.is_authenticated %}
+          <div class="row">
+            <div class="span4 columns">
+              Navigation
+            </div>
+            <div class="span4 columns">
+              <a
+                style="margin-bottom:10px;"
+                class="btn secondary small" 
+                href="{% url profile_detail user.username %}">{% trans "Your Profile" %}</a><br/>
+              <a class="btn secondary small" href="{% url profile_list %}">{% trans "All Profiles" %}</a>
+            </div>
+          </div>
+
+        {% else %}
+          &nbsp;
+        {% endif %}
+
+        <hr>
+      {% endblock subnav %}
+      {% block body %}
+      {% endblock %}
+
+    </div>
+    <div class="span8 columns">
+      {% block individual_workouts %}
+        {% include "workout/_profile_workouts.html" %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock body_base %}
+
+

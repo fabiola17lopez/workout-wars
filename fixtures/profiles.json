@@ -1,0 +1,26 @@
+[
+    {
+        "pk": 1, 
+        "model": "profiles.profile", 
+        "fields": {
+            "photo_link": "https://scontent-b-pao.xx.fbcdn.net/hphotos-ash3/48_503832154452_809_n.jpg", 
+            "about": "Coach.", 
+            "teams": [
+                6
+            ], 
+            "user": 1, 
+            "name": "Aman Ahuja"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "profiles.profile", 
+        "fields": {
+            "photo_link": null, 
+            "about": null, 
+            "teams": [], 
+            "user": 2, 
+            "name": null
+        }
+    }
+]

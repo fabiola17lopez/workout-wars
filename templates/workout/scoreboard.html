@@ -1,0 +1,173 @@
+{% extends "site_base.html" %}
+
+
+{% block head_title %} Scoreboards {% endblock %}
+
+{% block extra_head %}
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+  <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data_PI = google.visualization.arrayToDataTable({{ class_list_PI|safe }});
+        var data_TR = google.visualization.arrayToDataTable({{ class_list_TR|safe }});
+        var options = {
+          width: 700,
+          height: 280, 
+          colors: ['purple'],
+          bar: {groupWidth: "95%"},
+          legend: {position: "none" }, 
+          chartArea:{left:95,top:10,width:"90%",height:"85%"},
+          //hAxis: {title: 'Class', titleTextStyle: {color: 'purple'}}
+          };
+
+        var chart_PI = new google.visualization.ColumnChart(document.getElementById('PI_chart_div'));
+        chart_PI.draw(data_PI, options);
+        var chart_TR = new google.visualization.ColumnChart(document.getElementById('TR_chart_div'));
+        chart_TR.draw(data_TR, options);
+      }
+    </script>
+
+{% endblock %}
+
+{% block body %}
+
+<h1>Scoreboards</h1>
+
+{% if team_scores %}
+<h2>Points Earned by Team</h2>
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;"
+  >
+  <thead style="font-size:larger">
+    <tr>
+      <th>Team</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for team_name, team_score in team_scores %}
+      <tr>
+      <th>{{ team_name }}</th>
+      <th>{{ team_score }}</th>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if class_dict_PI %}
+  <h2>Points Earned by Year (<b>Pie Queens only<b>)</h2>
+  <p>Total points earned by class, divided by the number of players in that class.</p>
+  <div id="PI_chart_div" style="width: 750px; height: 300px;"></div>
+
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;margin-bottom:2px"
+  >
+  <thead>
+    <tr>
+      <th width=100%>Pie Queens</th>
+    </tr>
+  </thead>
+</table>
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;"
+  >
+  <thead style="font-size:larger;">
+    <tr>
+      <th></th>
+      <th>Freshmen</th>
+      <th>Sophomores</th>
+      <th>Juniors</th>
+      <th>Seniors</th>
+      <th>Graduate Students</th>
+      <th>Coaches</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Normalized</th>
+      <th>{{ class_dict_PI.FR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.SO.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.JR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.SR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.GR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.CO.0|floatformat:2|default:0 }}</th>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <th>{{ class_dict_PI.FR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.SO.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.JR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.SR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.GR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_PI.CO.1|floatformat:2|default:0 }}</th>
+    </tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if class_dict_TR %}
+  <h2>Points Earned by Year (<b>Tarts only<b>)</h2>
+  <p>Total points earned by class, divided by the number of players in that class.</p>
+<div id="TR_chart_div" style="width: 750px; height: 300px;"></div>
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;margin-bottom:2px"
+  >
+  <thead>
+    <tr>
+      <th width=100%>Tarts</th>
+    </tr>
+  </thead>
+</table>
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;"
+  >
+  <thead style="font-size:larger;">
+    <tr>
+      <th></th>
+      <th>Freshmen</th>
+      <th>Sophomores</th>
+      <th>Juniors</th>
+      <th>Seniors</th>
+      <th>Graduate Students</th>
+      <th>Coaches</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Normalized</th>
+      <th>{{ class_dict_TR.FR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.SO.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.JR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.SR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.GR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.CO.0|floatformat:2|default:0 }}</th>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <th>{{ class_dict_TR.FR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.SO.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.JR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.SR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.GR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_TR.CO.1|floatformat:2|default:0 }}</th>
+    </tr>
+  </tbody>
+</table>
+{% endif %}
+
+
+<h3>Feeling inspired?</h3>
+<p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
+
+<h3>See recent workouts</h3>
+<p>Look at <a href="{% url workout_list %}">all the hard work you and your teammates are doing</a>.</p>
+{% endblock %}
+

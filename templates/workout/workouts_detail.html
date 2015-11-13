@@ -1,0 +1,20 @@
+{% extends "site_base.html" %}
+
+
+{% block head_title %} xx {% endblock %}
+
+{% block body %}
+
+{% if workouts %}
+  <ul>
+    {% for workout in workouts %}
+    <li>{{ workout.id }}</li>
+    {% endfor %}
+  </ul>
+       
+{% else %} <h3>No recent workouts</h3>
+
+{% endif %}
+
+{% endblock %}
+

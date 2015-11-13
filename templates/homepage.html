@@ -1,0 +1,64 @@
+{% extends "banner_base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+
+{# See 
+https://github.com/pinax/pinax-theme-bootstrap/blob/master/pinax_theme_bootstrap/templates/theme_bootstrap/base.html
+#}
+
+{% block head_title %}home{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block banner %}
+<h1>{% trans "Pie Queens Workout Wars" %}</h1>
+<div class='row' style="margin-top:20px;">
+  <div class="span4"><img src="http://pq.amanahuja.me/site_media/static/images/pq-crown.png"></div>
+  <div class="span8">
+    {% blocktrans %}
+    <p>
+    <b>The Pie Queens Workout Wars</b> is a workout challenge! Each Queen can 
+    track her workouts and compare against her teammates. Rankings pit teams/classes 
+    against each other with some serious swag and bragging rights for the winner! 
+    {% endblocktrans %}
+    </p>
+  </div>
+</div>
+{% if user.is_authenticated %}
+  {% url what_next as what_next_url %}
+  <p class="what_next">{% blocktrans %}Wondering <a href="{{ what_next_url }}">What Next</a>?{% endblocktrans %}</p>
+  <p>Check out the competitive standings on the <a href="{% url scoreboard %}" class="btn primary large">Scoreboard</a>
+{% else %}
+  {% url acct_login as login_url %}
+  {% ifsetting ACCOUNT_OPEN_SIGNUP %}
+    {% url acct_signup as signup_url %}
+    <p>{% blocktrans %}To get started, <a href="{{ login_url }}" class="btn">Log In</a> or <a href="{{ signup_url }}" class="btn primary">Sign Up</a> and start entering your workouts.{% endblocktrans %}</p>
+  {% else %}
+    <p>{% blocktrans %}To get started, <a href="{{ login_url }}" class="btn primary large">Log In</a> and enter your workouts.{% endblocktrans %}</p>
+    {% endifsetting %}
+    <p style="font-size:14px;">(Don't have an account? Contact one of the PQ captains for help.)</p>
+{% endif %}
+{% endblock %}
+
+{% block column-1 %}
+<h3>Win SWAG</h3>
+<p>Get great stuff! Stuff from sponsors, from coaches, awards from your captains and/or teammates, who knows!? </p>
+{# <p><a class="btn btn-default" href="#">View details &raquo;</a></p> #}
+{% endblock %}
+
+{% block column-2 %}
+<h3>Earn Bragging Rights!</h3>
+<p>Get crazy bragging rights over all your teammates. It'll be glorious, all spring season, like having a trump card up your sleeve. Losing an argument? Get back on top by saying: "Yes, but I got way more workout points." </p>
+{% endblock %}
+
+{% block column-3 %}
+<h3>Get Stronger & Faster</h3>
+<p>Working out is its own reward. Use these points to motivate yourself, get into the best shape of your life, and realize your greatest dreams as an athlete and an ultimate player. It starts here, today.</p>
+{% endblock %}
+
+{% block column-4 %}
+<h3>Be a Better Team</h3>
+<p>Come together as a team, bond with your teammates, and inspire each other. Your workouts together set the tone for Spring Season. Bring out the love!</p>
+{% endblock %}
+

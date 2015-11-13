@@ -1,0 +1,26 @@
+{% load i18n %}
+<div class="profile_info">
+    {% if profile.photo_link %}
+      <div> 
+        <img 
+          style="max-width:400px; max-height:500px;"
+          src="{{ profile.photo_link }}">
+        </div>
+    {% endif %}
+    {% if profile.name %}<p><b>{% trans "Name" %}</b>: {{ profile.name }} </p>{% endif %}
+    {% if profile.about %}<p><b>{% trans "About" %}</b>: {{ profile.about }}</p>{% endif %}
+    {% if profile.graduating_class %}<p><b>{% trans "Graduating Class (Year)" %}</b>: {{ profile.class_str }}</p>{% endif %}
+    {% if profile.dessert %}<p><b>Pie or Tart</b>: {{ profile.dessert_str }}</p>{% endif %}
+    {% if profile.teams.all %}<p><b>Member of teams</b>:<br>
+      <ul>
+      {% for team in profile.teams.all %}
+        <li>{{ team.name }}</li>
+      {% endfor %}
+      </ul>
+      </p>{% endif %}
+    
+
+    {# Disabled Fields #}
+    {% if profile.location %}<p><b>{% trans "Location" %}</b>: {{ profile.location }}</p>{% endif %}
+    {% if profile.website %}<p><b>{% trans "Website" %}</b>: <a href="{{ profile.website }}">{{ profile.website }}</a></p>{% endif %}
+</div>

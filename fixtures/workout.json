@@ -1,0 +1,66 @@
+[
+    {
+        "pk": 1, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "1", 
+            "description": "Hiking"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "1", 
+            "description": "Running"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "3", 
+            "description": "Track workout"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "10", 
+            "description": "Pushups"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "3", 
+            "description": "Weight training"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "5", 
+            "description": "Pickup game"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "1", 
+            "description": "Plyos for stretching"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "4", 
+            "description": "Plyometrics intense"
+        }
+    }
+]

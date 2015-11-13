@@ -1,0 +1,101 @@
+{% extends "site_base.html" %}
+
+
+{% block head_title %} Scoreboards {% endblock %}
+{% block extra_head %}
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+  <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        //var data = google.visualization.arrayToDataTable([
+        //  ['Year', 'Sales', 'Expenses'],
+        //  ['2004',  1000,      400],
+        //  ['2005',  1170,      460],
+        //  ['2006',  660,       1120],
+        //  ['2007',  1030,      540]
+        //]);
+
+        //var data = google.visualization.DataTable({{ class_list|safe }});
+        var data = google.visualization.arrayToDataTable({{ class_list|safe }});
+        var options = {
+          width: 600,
+          height: 300, 
+          colors: ['purple'],
+          bar: {groupWidth: "95%"},
+          legend: {position: "none" }, 
+          hAxis: {title: 'Class', titleTextStyle: {color: 'purple'}}
+          };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+{% endblock %}
+{% block body %}
+
+<h1>Scoreboards</h1>
+{{ class_list }}
+
+{% if class_dict %}
+<h2>Points Earned by Year</h2>
+<div id="chart_div" style="width: 600px; height: 320px;"></div>
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;"
+  >
+  <thead style="font-size:larger;">
+    <tr>
+      <th>Freshman</th>
+      <th>Sophomores</th>
+      <th>Juniors</th>
+      <th>Seniors</th>
+      <th>Graduate Students</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>{{ class_dict.FR|default:0 }}</th>
+      <th>{{ class_dict.SO|default:0 }}</th>
+      <th>{{ class_dict.JR|default:0 }}</th>
+      <th>{{ class_dict.SR|default:0 }}</th>
+      <th>{{ class_dict.GR|default:0 }}</th>
+    </tr>
+  </tbody>
+</table>
+{% else %} <h3>No Workouts</h3>
+{% endif %}
+
+{% if team_scores %}
+<h2>Points Earned by Team</h2>
+<table 
+  class="table zebra-striped bordered-table condensed-table"
+  style="max-width:700px; table-layout : fixed;"
+  >
+  <thead style="font-size:larger">
+    <tr>
+      <th>Team</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for team_name, team_score in team_scores %}
+      <tr>
+      <th>{{ team_name }}</th>
+      <th>{{ team_score }}</th>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+
+<h3>Feeling inspired?</h3>
+<p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
+
+<h3>See recent workouts</h3>
+<p>Look at <a href="{% url workout_list %}">all the hard work you and your teammates are doing</a>.</p>
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends "site_base.html" %}
+
+{% block head_title %} List of Workouts{% endblock %}
+
+{% load pagination_tags %}
+
+{% block body %}
+
+{% if ranked_players %}
+  {# {% autopaginate ranked_players %} #} 
+  <h3>Ranked Players</h3>
+  <table 
+    id="indiv-table"
+    class="table zebra-striped bordered-table condensed-table">
+    <thead>
+      <tr>
+        <td>Player</td>
+        <td>Total Score to date</td>
+        {# <td>Class</td>  <td>Dessert</td>  #} 
+      </tr>
+    </thead>
+    <tbody>
+      {% for pl in ranked_players %}
+      <tr>
+        <td>{{ pl.0 }}</td>
+        <td>{{ pl.1 }}</td>
+        {#  <td>{{ pl.2 }}</td> <td>{{ pl.3 }}</td> #} 
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {#   {% paginate %} #}
+
+{% endif %}
+
+<div style="clear:both;">
+  <p>&nbsp;</p></div>
+<h3>Feeling inspired?</h3>
+<p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
+
+{% endblock %}
+
+
