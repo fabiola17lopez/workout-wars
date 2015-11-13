@@ -1,3 +1,14 @@
+# settings and data
+settings.py
+db/*.db
+
+# Working files
+*.sw[op]   # vim swap files
+
+## Above: Project specific ignores
+## -------------------------------
+## Below: Standard github .gitignore for Python projects. 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
