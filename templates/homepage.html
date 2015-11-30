@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load ifsetting_tag %}
+{% load staticfiles %}
 
 {# See 
 https://github.com/pinax/pinax-theme-bootstrap/blob/master/pinax_theme_bootstrap/templates/theme_bootstrap/base.html
@@ -14,7 +15,7 @@ https://github.com/pinax/pinax-theme-bootstrap/blob/master/pinax_theme_bootstrap
 {% block banner %}
 <h1>{% trans "Pie Queens Workout Wars" %}</h1>
 <div class='row' style="margin-top:20px;">
-  <div class="span4"><img src="http://pq.amanahuja.me/site_media/static/images/pq-crown.png"></div>
+  <div class="span4"><img src="{% static "images/pq-crown.png" %}" alt="pq-crown"></div>
   <div class="span8">
     {% blocktrans %}
     <p>
