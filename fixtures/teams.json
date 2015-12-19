@@ -3,14 +3,14 @@
     "pk": 1, 
     "model": "workout.team", 
     "fields": {
-      "name": "Delta Force"
+      "name": "Girls just wanna have guns"
     }
   }, 
   {
     "pk": 2, 
     "model": "workout.team", 
     "fields": {
-      "name": "Discovery Channel"
+      "name": "Drop it like a Squat"
     }
   }
 ]

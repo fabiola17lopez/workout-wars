@@ -1,38 +1,482 @@
 [
     {
-        "pk": 1, 
-        "model": "auth.user", 
+        "pk": 1,
+        "model": "auth.user",
         "fields": {
-            "username": "aman", 
-            "first_name": "", 
-            "last_name": "", 
-            "is_active": true, 
-            "is_superuser": true, 
-            "is_staff": true, 
-            "last_login": "2013-12-16 19:01:55", 
-            "groups": [], 
-            "user_permissions": [], 
-            "password": "sha1$e1a29$086319b3e168ba37e9ebf432c571a61a675b4e8a", 
-            "email": "a@f.com", 
-            "date_joined": "2013-12-11 21:20:12"
+            "username": "a.estrada@berkeley.edu",
+            "first_name": "Alexia",
+            "last_name": "Estrada",
+            "email": "a.estrada@berkeley.edu"
         }
-    }, 
+    },
     {
-        "pk": 2, 
-        "model": "auth.user", 
+        "pk": 2,
+        "model": "auth.user",
         "fields": {
-            "username": "slap", 
-            "first_name": "", 
-            "last_name": "", 
-            "is_active": true, 
-            "is_superuser": true, 
-            "is_staff": true, 
-            "last_login": "2013-12-13 11:58:39", 
-            "groups": [], 
-            "user_permissions": [], 
-            "password": "sha1$e06a6$05ad7d8c731b4ec44c060c7ea818e231deb6dec7", 
-            "email": "", 
-            "date_joined": "2013-12-13 11:58:39"
+            "username": "alicia.sadowski@berkeley.edu",
+            "first_name": "Alicia",
+            "last_name": "Sadowski",
+            "email": "alicia.sadowski@berkeley.edu"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "auth.user",
+        "fields": {
+            "username": "alinehalliday@berkeley.edu",
+            "first_name": "Aline",
+            "last_name": "Halliday",
+            "email": "alinehalliday@berkeley.edu"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "auth.user",
+        "fields": {
+            "username": "agriffith@berkeley.edu",
+            "first_name": "Alison",
+            "last_name": "Griffith",
+            "email": "agriffith@berkeley.edu"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "auth.user",
+        "fields": {
+            "username": "anhaddad@berkeley.edu",
+            "first_name": "Alison",
+            "last_name": "Haddad",
+            "email": "anhaddad@berkeley.edu"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "auth.user",
+        "fields": {
+            "username": "amathews@berkeley.edu",
+            "first_name": "Alison",
+            "last_name": "Mathews",
+            "email": "amathews@berkeley.edu"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "auth.user",
+        "fields": {
+            "username": "allegramayer@berkeley.edu",
+            "first_name": "Allegra",
+            "last_name": "Mayer",
+            "email": "allegramayer@berkeley.edu"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "auth.user",
+        "fields": {
+            "username": "ennis.aly@gmail.com",
+            "first_name": "Aly",
+            "last_name": "Ennis",
+            "email": "ennis.aly@gmail.com"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "auth.user",
+        "fields": {
+            "username": "anjilean@berkeley.edu",
+            "first_name": "Anjile",
+            "last_name": "An",
+            "email": "anjilean@berkeley.edu"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "auth.user",
+        "fields": {
+            "username": "annawysen@berkeley.edu",
+            "first_name": "Anna",
+            "last_name": "Wysen",
+            "email": "annawysen@berkeley.edu"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "auth.user",
+        "fields": {
+            "username": "nagaban2@berkeley.edu",
+            "first_name": "Anusha",
+            "last_name": "Nagabandi",
+            "email": "nagaban2@berkeley.edu"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "auth.user",
+        "fields": {
+            "username": "charlotteanne.odonnell@gmail.com",
+            "first_name": "Charlotte",
+            "last_name": "O'Donnell",
+            "email": "charlotteanne.odonnell@gmail.com"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "auth.user",
+        "fields": {
+            "username": "christy.jarman@berkeley.edu",
+            "first_name": "Christy",
+            "last_name": "Jarman",
+            "email": "christy.jarman@berkeley.edu"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "auth.user",
+        "fields": {
+            "username": "danielle.murray99@berkeley.edu",
+            "first_name": "Danielle",
+            "last_name": "Murray",
+            "email": "danielle.murray99@berkeley.edu"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "auth.user",
+        "fields": {
+            "username": "dredor@berkeley.edu",
+            "first_name": "Devin",
+            "last_name": "Redor",
+            "email": "dredor@berkeley.edu"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "auth.user",
+        "fields": {
+            "username": "ecgood@berkeley.edu",
+            "first_name": "Elena",
+            "last_name": "Good",
+            "email": "ecgood@berkeley.edu"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "auth.user",
+        "fields": {
+            "username": "elenamiller@berkeley.edu",
+            "first_name": "Elena",
+            "last_name": "Miller",
+            "email": "elenamiller@berkeley.edu"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "auth.user",
+        "fields": {
+            "username": "gbalanon@berkeley.edu",
+            "first_name": "Gabrielle",
+            "last_name": "Balanon",
+            "email": "gbalanon@berkeley.edu"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "auth.user",
+        "fields": {
+            "username": "graceflintermann@berkeley.edu",
+            "first_name": "Grace",
+            "last_name": "Flintermann",
+            "email": "graceflintermann@berkeley.edu"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "auth.user",
+        "fields": {
+            "username": "hannah.ellis@berkeley.edu",
+            "first_name": "Hannah",
+            "last_name": "Ellis",
+            "email": "hannah.ellis@berkeley.edu"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "auth.user",
+        "fields": {
+            "username": "jnguyen95@berkeley.edu",
+            "first_name": "Jackelyne",
+            "last_name": "Nguyen",
+            "email": "jnguyen95@berkeley.edu"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "auth.user",
+        "fields": {
+            "username": "janice.chui@berkeley.edu",
+            "first_name": "Janice",
+            "last_name": "Chui",
+            "email": "janice.chui@berkeley.edu"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "auth.user",
+        "fields": {
+            "username": "jess.siu@berkeley.edu",
+            "first_name": "Jessalyn",
+            "last_name": "Siu",
+            "email": "jess.siu@berkeley.edu"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "auth.user",
+        "fields": {
+            "username": "jsibby3@berkeley.edu",
+            "first_name": "Julian",
+            "last_name": "Sibby",
+            "email": "jsibby3@berkeley.edu"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "auth.user",
+        "fields": {
+            "username": "kjcarlson@berkeley.edu",
+            "first_name": "Katy",
+            "last_name": "Carlson",
+            "email": "kjcarlson@berkeley.edu"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "auth.user",
+        "fields": {
+            "username": "kimlong@berkeley.edu",
+            "first_name": "Kim",
+            "last_name": "Long",
+            "email": "kimlong@berkeley.edu"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "auth.user",
+        "fields": {
+            "username": "krystalching@berkeley.edu",
+            "first_name": "Krystal",
+            "last_name": "Ching",
+            "email": "krystalching@berkeley.edu"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "auth.user",
+        "fields": {
+            "username": "alhasan@berkeley.edu",
+            "first_name": "Lexi",
+            "last_name": "Hasan",
+            "email": "alhasan@berkeley.edu"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "auth.user",
+        "fields": {
+            "username": "lhmccann@berkeley.edu",
+            "first_name": "Lily",
+            "last_name": "McCann",
+            "email": "lhmccann@berkeley.edu"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "auth.user",
+        "fields": {
+            "username": "valentin.luise@gmail.com",
+            "first_name": "Luise",
+            "last_name": "Valentin",
+            "email": "valentin.luise@gmail.com"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "auth.user",
+        "fields": {
+            "username": "smithmackensie96@gmail.com",
+            "first_name": "Mackensie",
+            "last_name": "Smith",
+            "email": "smithmackensie96@gmail.com"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "auth.user",
+        "fields": {
+            "username": "marisa.rafter@gmail.com",
+            "first_name": "Marisa",
+            "last_name": "Rafter",
+            "email": "marisa.rafter@gmail.com"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "auth.user",
+        "fields": {
+            "username": "nguyenmegan@berkeley.edu",
+            "first_name": "Megan",
+            "last_name": "Nguyen",
+            "email": "nguyenmegan@berkeley.edu"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "auth.user",
+        "fields": {
+            "username": "petravx@gmail.com",
+            "first_name": "Petra",
+            "last_name": "Varkonyi",
+            "email": "petravx@gmail.com"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "auth.user",
+        "fields": {
+            "username": "rebecca_chew@berkeley.edu",
+            "first_name": "Rebecca",
+            "last_name": "Chew",
+            "email": "rebecca_chew@berkeley.edu"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "auth.user",
+        "fields": {
+            "username": "Romacree@berkeley.edu",
+            "first_name": "Roma",
+            "last_name": "Patterson",
+            "email": "Romacree@berkeley.edu"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "auth.user",
+        "fields": {
+            "username": "sophiagluck@berkeley.edu",
+            "first_name": "Sophia",
+            "last_name": "Gluck",
+            "email": "sophiagluck@berkeley.edu"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "auth.user",
+        "fields": {
+            "username": "standun@berkeley.edu",
+            "first_name": "Stephanie",
+            "last_name": "Tandun",
+            "email": "standun@berkeley.edu"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "auth.user",
+        "fields": {
+            "username": "sydneyhoranic@gmail.com",
+            "first_name": "Sydney",
+            "last_name": "Horanic",
+            "email": "sydneyhoranic@gmail.com"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "auth.user",
+        "fields": {
+            "username": "valerie.lowe@berkeley.edu",
+            "first_name": "Valerie",
+            "last_name": "Lowe",
+            "email": "valerie.lowe@berkeley.edu"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "auth.user",
+        "fields": {
+            "username": "vanesng96@gmail.com",
+            "first_name": "Vanessa",
+            "last_name": "Ng",
+            "email": "vanesng96@gmail.com"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "auth.user",
+        "fields": {
+            "username": "a943658@gmail.com",
+            "first_name": "Yun-Yun,",
+            "last_name": "Lin",
+            "email": "a943658@gmail.com"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "auth.user",
+        "fields": {
+            "username": "megan.pera@gmail.com",
+            "first_name": "Megan",
+            "last_name": "Pera",
+            "email": "megan.pera@gmail.com"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "auth.user",
+        "fields": {
+            "username": "miranda.jen@berkeley.edu",
+            "first_name": "Miranda",
+            "last_name": "Jen",
+            "email": "miranda.jen@berkeley.edu"
+        }
+    },
+    {
+        "pk": 45,
+        "model": "auth.user",
+        "fields": {
+            "username": "nbuliksullivan@berkeley.edu",
+            "first_name": "Natallie",
+            "last_name": "Bulik Sullivan",
+            "email": "nbuliksullivan@berkeley.edu"
+        }
+    },
+    {
+        "pk": 46,
+        "model": "auth.user",
+        "fields": {
+            "username": "mmfarrell@berkeley.edu",
+            "first_name": "Mathilda",
+            "last_name": "Farrell",
+            "email": "mmfarrell@berkeley.edu"
+        }
+    },
+    {
+        "pk": 47,
+        "model": "auth.user",
+        "fields": {
+            "username": "taylorkennemore@berkeley.edu",
+            "first_name": "Taylor",
+            "last_name": "Kennmore",
+            "email": "taylorkennemore@berkeley.edu"
+        }
+    },
+    {
+        "pk": 48,
+        "model": "auth.user",
+        "fields": {
+            "username": "mediterranean_blue@hotmail.com",
+            "first_name": "Megg",
+            "last_name": "Mcclarty",
+            "email": "mediterranean_blue@hotmail.com"
         }
     }
 ]

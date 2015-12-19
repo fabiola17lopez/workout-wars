@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI Emperor for workout wars
+After=syslog.target
+
+[Service]
+ExecStart=/home/elizabeth/anaconda2/envs/_build/bin/uwsgi --ini /home/elizabeth/workout-wars/conf/workoutwars.ini
+#RuntimeDirectory=uwsgi
+Restart=always
+KillSignals=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

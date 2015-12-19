@@ -1,26 +1,482 @@
 [
     {
-        "pk": 1, 
-        "model": "profiles.profile", 
+        "pk": 1,
+        "model": "profiles.profile",
         "fields": {
-            "photo_link": "https://scontent-b-pao.xx.fbcdn.net/hphotos-ash3/48_503832154452_809_n.jpg", 
-            "about": "Coach.", 
-            "teams": [
-                6
-            ], 
-            "user": 1, 
-            "name": "Aman Ahuja"
+            "about": "Junior",
+            "user": 1,
+            "name": "Alexia Estrada",
+            "teams": [2]
         }
-    }, 
+    },
     {
-        "pk": 2, 
-        "model": "profiles.profile", 
+        "pk": 2,
+        "model": "profiles.profile",
         "fields": {
-            "photo_link": null, 
-            "about": null, 
-            "teams": [], 
-            "user": 2, 
-            "name": null
+            "about": "Freshman",
+            "user": 2,
+            "name": "Alicia Sadowski",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 3,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 3,
+            "name": "Aline Halliday",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 4,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 4,
+            "name": "Alison Griffith",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 5,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 5,
+            "name": "Alison Haddad",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 6,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 6,
+            "name": "Alison Mathews",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 7,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 7,
+            "name": "Allegra Mayer",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 8,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 8,
+            "name": "Aly Ennis",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 9,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 9,
+            "name": "Anjile An",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 10,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 10,
+            "name": "Anna Wysen",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 11,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 11,
+            "name": "Anusha Nagabandi",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 12,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 12,
+            "name": "Charlotte O'Donnell",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 13,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 13,
+            "name": "Christy Jarman",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 14,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 14,
+            "name": "Danielle Murray",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 15,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 15,
+            "name": "Devin Redor",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 16,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 16,
+            "name": "Elena Good",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 17,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 17,
+            "name": "Elena Miller",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 18,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 18,
+            "name": "Gabrielle Balanon",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 19,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 19,
+            "name": "Grace Flintermann",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 20,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 20,
+            "name": "Hannah Ellis",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 21,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 21,
+            "name": "Jackelyne Nguyen",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 22,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 22,
+            "name": "Janice Chui",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 23,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 23,
+            "name": "Jessalyn Siu",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 24,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 24,
+            "name": "Julian Sibby",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 25,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 25,
+            "name": "Katy Carlson",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 26,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 26,
+            "name": "Kim Long",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 27,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 27,
+            "name": "Krystal Ching",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 28,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 28,
+            "name": "Lexi Hasan",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 29,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 29,
+            "name": "Lily McCann",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 30,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 30,
+            "name": "Luise Valentin",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 31,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 31,
+            "name": "Mackensie Smith",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 32,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 32,
+            "name": "Marisa Rafter",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 33,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 33,
+            "name": "Megan Nguyen",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 34,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 34,
+            "name": "Petra Varkonyi",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 35,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 35,
+            "name": "Rebecca Chew",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 36,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 36,
+            "name": "Roma Patterson",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 37,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 37,
+            "name": "Sophia Gluck",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 38,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 38,
+            "name": "Stephanie Tandun",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 39,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 39,
+            "name": "Sydney Horanic",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 40,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 40,
+            "name": "Valerie Lowe",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 41,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 41,
+            "name": "Vanessa Ng",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 42,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 42,
+            "name": "Yun-Yun, Lin",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 43,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 43,
+            "name": "Megan Pera",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 44,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Freshman",
+            "user": 44,
+            "name": "Miranda Jen",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 45,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Sophomores",
+            "user": 45,
+            "name": "Natallie Bulik Sullivan",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 46,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Junior",
+            "user": 46,
+            "name": "Mathilda Farrell",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 47,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Senior",
+            "user": 47,
+            "name": "Taylor Kennmore",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 48,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Graduate Student",
+            "user": 48,
+            "name": "Megg Mcclarty",
+            "teams": [2]
         }
     }
 ]
