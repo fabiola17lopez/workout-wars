@@ -62,5 +62,13 @@
             "intensity_multiplier": "4", 
             "description": "Plyometrics intense"
         }
+    },
+        {
+        "pk": 9, 
+        "model": "workout.activity", 
+        "fields": {
+            "intensity_multiplier": "-1", 
+            "description": "Ate Cheesy Stick"
+        }
     }
 ]
