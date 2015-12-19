@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 #from django.core.urlresolvers import reverse_lazy
 
 from collections import defaultdict
-from decimal import Decimal 
+from decimal import Decimal
 from django.utils import simplejson
 
 from workout.models import Workout, Activity, Team, User
@@ -21,14 +21,14 @@ def index(request):
   -----------
   Shows a list of recent workouts by all Users
   Perhaps a list of current user's recent workouts
-  Good place for a scoreboard. 
-  """    
+  Good place for a scoreboard.
+  """
   try:
     recent_workouts = Workout.objects.all().order_by('workout_date')
   except ObjectDoesNotExist:
     recent_workouts = []
 
-  return render_to_response('workout/workouts_home.html', 
+  return render_to_response('workout/workouts_home.html',
       {'workouts': recent_workouts},
       context_instance=RequestContext(request)
       )
@@ -36,13 +36,13 @@ def index(request):
 import operator
 def indiv(request):
   pdict = defaultdict(int)
-  for ww in Workout.objects.all(): 
+  for ww in Workout.objects.all():
     pdict[ww.user.username] += float(ww.score)
   pdict = dict(pdict)
 
 
-  rankedlist = sorted(pdict.iteritems(), 
-      key=operator.itemgetter(1), 
+  rankedlist = sorted(pdict.iteritems(),
+      key=operator.itemgetter(1),
       reverse=True)
 
   userinfo = []
@@ -50,22 +50,22 @@ def indiv(request):
     pp = Profile.objects.filter(user__username__iexact=user)[0]
     userinfo.append((user, score, pp.class_str(), pp.dessert_str()))
 
-  return render_to_response('workout/workouts_indiv.html', 
+  return render_to_response('workout/workouts_indiv.html',
       {'ranked_players': userinfo},
       context_instance=RequestContext(request)
       )
 
-  
+
 def test(request):
   pdict = defaultdict(int)
-  for ww in Workout.objects.all(): 
+  for ww in Workout.objects.all():
     pdict[ww.user.username] += float(ww.score)
 
-  rankedlist = sorted(pdict.iteritems(), 
-      key=operator.itemgetter(1), 
+  rankedlist = sorted(pdict.iteritems(),
+      key=operator.itemgetter(1),
       reverse=True)
 
-  return render_to_response('workout/workouts_indiv.html', 
+  return render_to_response('workout/workouts_indiv.html',
       {'ranked_players': rankedlist},
       context_instance=RequestContext(request)
       )
@@ -77,12 +77,17 @@ def scoreboard(request):
   """
   Scoreboard View
   ---------------
-  Shows the scoreboards. 
+  Shows the scoreboards.
   1. Total for each class
-  2. Total for each team 
+  2. Total for each team
   """
-  class_list_PI, class_dict_PI = _gclass_query(dessert = 'PI')
-  class_list_TR, class_dict_TR = _gclass_query(dessert = 'TR')
+
+  # Commenting out b/c not using pie/tart distinction in 2015
+  # class_list_PI, class_dict_PI = _gclass_query(dessert = 'PI')
+  # class_list_TR, class_dict_TR = _gclass_query(dessert = 'TR')
+  # ... instead:
+  class_list, class_dict = _gclass_query()
+
 
   ## For Teams
   all_teams = [t.name for t in Team.objects.all()]
@@ -94,48 +99,63 @@ def scoreboard(request):
         )
     #Get total workout score for each Team.
     iscore = 0
-    for iworkout in q: 
+    for iworkout in q:
       iscore += iworkout.score
 
     team_scores.append([team, iscore])
 
-  return render_to_response('workout/scoreboard.html', 
+  return render_to_response(
+      'workout/scoreboard.html',
       {
-        'team_scores': team_scores,
-        'class_dict_PI': dict(class_dict_PI),
-        'class_list_PI': simplejson.dumps(class_list_PI),
-        'class_dict_TR': dict(class_dict_TR),
-        'class_list_TR': simplejson.dumps(class_list_TR),
+          'team_scores': team_scores,
+          # 'class_dict_PI': dict(class_dict_PI),
+          # 'class_list_PI': simplejson.dumps(class_list_PI),
+          # 'class_dict_TR': dict(class_dict_TR),
+          # 'class_list_TR': simplejson.dumps(class_list_TR),
+          'class_dict_BOTH': dict(class_dict),
+          'class_list_BOTH': simplejson.dumps(class_list),
       },
       context_instance=RequestContext(request)
       )
 
-def _gclass_query(dessert):
+
+def _gclass_query(dessert=None):
   """
   Calculates workout scores by class
-  subdivided by dessert (pies vs tarts)
+  with option to subdivid by dessert (pies vs tarts)
   """
-  CLASS_YEARS = ['FR', 'SO', 'JR', 'SR', 'GR', 'CO'] 
+  CLASS_YEARS = ['FR', 'SO', 'JR', 'SR', 'GR', 'CO']
   class_dict = defaultdict(Decimal)
 
   class_list = []
   class_list.append( ['Class', 'Points'] )
 
   for gclass in CLASS_YEARS:
-    #Get number of players in class
-    n_players = len(
-        User.objects.filter(
-          profile__dessert__iexact=dessert).filter(
-          profile__graduating_class__iexact=gclass)
-        )
+    # Get number of players in class
+    if dessert is not None:
+        n_players = len(
+            User.objects.filter(
+                profile__dessert__iexact=dessert).filter(
+                profile__graduating_class__iexact=gclass)
+            )
+    else:  # i.e., if dessert is None
+        n_players = len(
+            User.objects.filter(
+                profile__graduating_class__iexact=gclass)
+            )
 
     iscore = 0
 
-    #Get all workouts for each Year
-    q = Workout.objects.filter(
-      user__profile__dessert__iexact=dessert).filter(
-      user__profile__graduating_class__iexact=gclass
-      )
+    # Get all workouts for each Year
+    if dessert is not None:
+        q = Workout.objects.filter(
+            user__profile__dessert__iexact=dessert).filter(
+            user__profile__graduating_class__iexact=gclass
+        )
+    else:  # i.e., if dessert is None
+        q = Workout.objects.filter(
+            user__profile__graduating_class__iexact=gclass
+        )
 
     #get total workout score for each Year
     for iworkout in q:
@@ -145,12 +165,12 @@ def _gclass_query(dessert):
     # with: iscore / n_players
     if n_players > 0:
       normed = float(iscore / n_players)
-    elif n_players == 0: 
+    elif n_players == 0:
       normed = 0
     class_list.append ([gclass, normed])
     #Tuple with both total and normalized scores
     class_dict[gclass] = (normed, iscore)
-  
+
   return class_list, class_dict
 
 @login_required
@@ -158,8 +178,8 @@ def add(request):
   """
   Add View
   ------------
-  Fill out a CreateForm for a workout 
-  Simple form entry here, maybe a default view? 
+  Fill out a CreateForm for a workout
+  Simple form entry here, maybe a default view?
   Need dropdown for workout options
   """
   context_data = {}
@@ -173,13 +193,13 @@ def add(request):
 
     workout.duration = request.POST['duration']
     if 'with_other_class' in request.POST:
-      if request.POST['with_other_class'] == 'on': 
+      if request.POST['with_other_class'] == 'on':
         workout.with_other_class = True
-    
+
     #Manage Dates
-    try: 
+    try:
       workout.workout_date = request.POST['workout_date']
-    except: 
+    except:
       year = request.POST['workout_date_year']
       month = request.POST['workout_date_month']
       day = request.POST['workout_date_day']
@@ -194,15 +214,15 @@ def add(request):
     #Create bound form
     #form = WorkoutFormCreate(data = workout_data )
 
-    try: 
+    try:
       #VALID DATA
       workout.save()
       context_data['message']= "Data submitted."
 
-      return render_to_response('workout/workouts_submit.html', 
+      return render_to_response('workout/workouts_submit.html',
           context_data, context_instance=RequestContext(request),
           )
-    except: 
+    except:
       #INVALID DATA
       context_data['message']= "Invalid Data Submitted. Please try again."
 
@@ -210,12 +230,12 @@ def add(request):
   ELSE if request.method != POST)
   Form has not yet been submitted. Create new form.
   '''
-  
+
   #Create unbound form
   context_data['form'] = WorkoutFormCreate(user = request.user )
   #form = WorkoutFormCreate(user = request.user )
-  
-  return render_to_response('workout/workout_form.html', 
+
+  return render_to_response('workout/workout_form.html',
       context_data,
       context_instance=RequestContext(request),
       )
@@ -228,13 +248,13 @@ from django.forms.extras.widgets import SelectDateWidget
 
 class WorkoutFormCreate(ModelForm):
   duration = DecimalField(
-      min_value=0, max_value = 40, max_digits=5, 
-      label = "Duration (15 min blocks)", 
+      min_value=0, max_value = 40, max_digits=5,
+      label = "Duration (15 min blocks)",
       help_text = "e.g., for a 30 minute workout, enter '2'."
       )
 
   with_other_class = BooleanField(
-      label = "With different class?", 
+      label = "With different class?",
       help_text = "BONUS POINTS! Select this if you worked out with a teammates from a different graduating class, like a Sophomore with a Junior."
       )
 
@@ -248,16 +268,16 @@ class WorkoutFormCreate(ModelForm):
   activity = ModelChoiceField(
       queryset = Activity.objects.order_by('description'))
 
-  class Meta: 
+  class Meta:
     model = Workout
     fields = [   #Appears in the form in this order:
-      'workout_date', 
-      'activity', 
-      'with_other_class', 
+      'workout_date',
+      'activity',
+      'with_other_class',
       'duration', ]
-    exclude = ['user',] 
+    exclude = ['user',]
 
-  def __init__(self, user=None, *args, **kwargs): 
+  def __init__(self, user=None, *args, **kwargs):
     super(WorkoutFormCreate, self).__init__(*args, **kwargs)
     self._user = user
 

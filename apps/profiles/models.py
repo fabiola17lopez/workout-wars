@@ -48,7 +48,7 @@ class Profile(ProfileBase):
     )
   dessert = models.CharField(max_length=2,
     choices=DESSERT_CHOICES,
-    default=PIE)
+    default=NO_DESSERT)
 
   #Teams that the user is part of.
   teams = models.ManyToManyField(Team, blank=True)

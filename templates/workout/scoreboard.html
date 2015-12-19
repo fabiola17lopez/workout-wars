@@ -10,8 +10,9 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data_PI = google.visualization.arrayToDataTable({{ class_list_PI|safe }});
-        var data_TR = google.visualization.arrayToDataTable({{ class_list_TR|safe }});
+          var data_BOTH = google.visualization.arrayToDataTable({{ class_list_BOTH|safe }});
+          //var data_PI = google.visualization.arrayToDataTable({{ class_list_PI|safe }});
+          //var data_TR = google.visualization.arrayToDataTable({{ class_list_TR|safe }});
         var options = {
           width: 700,
           height: 280, 
@@ -22,10 +23,13 @@
           //hAxis: {title: 'Class', titleTextStyle: {color: 'purple'}}
           };
 
-        var chart_PI = new google.visualization.ColumnChart(document.getElementById('PI_chart_div'));
-        chart_PI.draw(data_PI, options);
-        var chart_TR = new google.visualization.ColumnChart(document.getElementById('TR_chart_div'));
-        chart_TR.draw(data_TR, options);
+        //var chart_PI = new google.visualization.ColumnChart(document.getElementById('PI_chart_div'));
+        //chart_PI.draw(data_PI, options);
+        //var chart_TR = new google.visualization.ColumnChart(document.getElementById('TR_chart_div'));
+        //chart_TR.draw(data_TR, options);
+
+        var chart_BOTH = new google.visualization.ColumnChart(document.getElementById('BOTH_chart_div'));
+        chart_BOTH.draw(data_BOTH, options);
       }
     </script>
 
@@ -58,10 +62,10 @@
 </table>
 {% endif %}
 
-{% if class_dict_PI %}
-  <h2>Points Earned by Year (<b>Pie Queens only<b>)</h2>
+{% if class_dict_BOTH %}
+  <h2>Points Earned by Year</h2>
   <p>Total points earned by class, divided by the number of players in that class.</p>
-  <div id="PI_chart_div" style="width: 750px; height: 300px;"></div>
+  <div id="BOTH_chart_div" style="width: 750px; height: 300px;"></div>
 
 <table 
   class="table zebra-striped bordered-table condensed-table"
@@ -69,7 +73,7 @@
   >
   <thead>
     <tr>
-      <th width=100%>Pie Queens</th>
+      <th width=100%>Queens</th>
     </tr>
   </thead>
 </table>
@@ -91,78 +95,25 @@
   <tbody>
     <tr>
       <th>Normalized</th>
-      <th>{{ class_dict_PI.FR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.SO.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.JR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.SR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.GR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.CO.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.FR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.SO.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.JR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.SR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.GR.0|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.CO.0|floatformat:2|default:0 }}</th>
     </tr>
     <tr>
       <th>Total</th>
-      <th>{{ class_dict_PI.FR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.SO.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.JR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.SR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.GR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_PI.CO.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.FR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.SO.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.JR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.SR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.GR.1|floatformat:2|default:0 }}</th>
+      <th>{{ class_dict_BOTH.CO.1|floatformat:2|default:0 }}</th>
     </tr>
   </tbody>
 </table>
 {% endif %}
-
-{% if class_dict_TR %}
-  <h2>Points Earned by Year (<b>Tarts only<b>)</h2>
-  <p>Total points earned by class, divided by the number of players in that class.</p>
-<div id="TR_chart_div" style="width: 750px; height: 300px;"></div>
-<table 
-  class="table zebra-striped bordered-table condensed-table"
-  style="max-width:700px; table-layout : fixed;margin-bottom:2px"
-  >
-  <thead>
-    <tr>
-      <th width=100%>Tarts</th>
-    </tr>
-  </thead>
-</table>
-<table 
-  class="table zebra-striped bordered-table condensed-table"
-  style="max-width:700px; table-layout : fixed;"
-  >
-  <thead style="font-size:larger;">
-    <tr>
-      <th></th>
-      <th>Freshmen</th>
-      <th>Sophomores</th>
-      <th>Juniors</th>
-      <th>Seniors</th>
-      <th>Graduate Students</th>
-      <th>Coaches</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Normalized</th>
-      <th>{{ class_dict_TR.FR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.SO.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.JR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.SR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.GR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.CO.0|floatformat:2|default:0 }}</th>
-    </tr>
-    <tr>
-      <th>Total</th>
-      <th>{{ class_dict_TR.FR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.SO.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.JR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.SR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.GR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_TR.CO.1|floatformat:2|default:0 }}</th>
-    </tr>
-  </tbody>
-</table>
-{% endif %}
-
 
 <h3>Feeling inspired?</h3>
 <p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
