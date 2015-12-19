@@ -478,5 +478,45 @@
             "last_name": "Mcclarty",
             "email": "mediterranean_blue@hotmail.com"
         }
+    },
+    {
+        "pk": 49,
+        "model": "auth.user",
+        "fields": {
+            "username": "Slap",
+            "first_name": "Manisha",
+            "last_name": "Daryani",
+            "email": ""
+        }
+    },
+    {
+        "pk": 50,
+        "model": "auth.user",
+        "fields": {
+            "username": "Aman",
+            "first_name": "Aman",
+            "last_name": "Ahuja",
+            "email": ""
+        }
+    },
+    {
+        "pk": 51,
+        "model": "auth.user",
+        "fields": {
+            "username": "Maddog",
+            "first_name": "Anna",
+            "last_name": "Nazarov",
+            "email": ""
+        }
+    },
+    {
+        "pk": 52,
+        "model": "auth.user",
+        "fields": {
+            "username": "Boots",
+            "first_name": "Katie",
+            "last_name": "Swinnerton",
+            "email": ""
+        }
     }
 ]

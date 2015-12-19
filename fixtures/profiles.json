@@ -478,5 +478,45 @@
             "name": "Megg Mcclarty",
             "teams": [2]
         }
+    },
+    {
+        "pk": 49,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Coach",
+            "user": 49,
+            "name": "Maddog",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 50,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Coach",
+            "user": 50,
+            "name": "Boots",
+            "teams": [2]
+        }
+    },
+    {
+        "pk": 51,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Coach",
+            "user": 51,
+            "name": "Aman",
+            "teams": [1]
+        }
+    },
+    {
+        "pk": 52,
+        "model": "profiles.profile",
+        "fields": {
+            "about": "Coach",
+            "user": 52,
+            "name": "Slap",
+            "teams": [1]
+        }
     }
 ]
