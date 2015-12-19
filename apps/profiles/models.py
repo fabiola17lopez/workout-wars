@@ -82,5 +82,6 @@ class Profile(ProfileBase):
     DESSERT_STR_DICT = {
         'PI': 'Pie',
         'TR': 'Tart',
+        'NO': 'None',
         }
     return DESSERT_STR_DICT[self.dessert]
