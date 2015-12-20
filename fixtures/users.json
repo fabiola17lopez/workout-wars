@@ -786,16 +786,16 @@
         "pk": 50,
         "model": "auth.user",
         "fields": {
-            "username": "Aman",
+            "username": "aman",
             "first_name": "Aman",
             "last_name": "Ahuja",
             "is_active": true,
-            "is_superuser": false,
-            "is_staff": false,
+            "is_superuser": true,
+            "is_staff": true,
             "groups": [],
             "user_permissions": [],
             "password": "",
-            "email": ""
+            "email": "amanahuja@gmail.com"
         }
     },
     {
@@ -806,8 +806,8 @@
             "first_name": "Anna",
             "last_name": "Nazarov",
             "is_active": true,
-            "is_superuser": false,
-            "is_staff": false,
+            "is_superuser": true,
+            "is_staff": true,
             "groups": [],
             "user_permissions": [],
             "password": "",
@@ -822,8 +822,8 @@
             "first_name": "Katie",
             "last_name": "Swinnerton",
             "is_active": true,
-            "is_superuser": false,
-            "is_staff": false,
+            "is_superuser": true,
+            "is_staff": true,
             "groups": [],
             "user_permissions": [],
             "password": "",
