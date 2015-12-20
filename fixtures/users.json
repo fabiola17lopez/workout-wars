@@ -6,6 +6,12 @@
             "username": "a.estrada@berkeley.edu",
             "first_name": "Alexia",
             "last_name": "Estrada",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "a.estrada@berkeley.edu"
         }
     },
@@ -16,6 +22,12 @@
             "username": "alicia.sadowski@berkeley.edu",
             "first_name": "Alicia",
             "last_name": "Sadowski",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "alicia.sadowski@berkeley.edu"
         }
     },
@@ -26,6 +38,12 @@
             "username": "alinehalliday@berkeley.edu",
             "first_name": "Aline",
             "last_name": "Halliday",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "alinehalliday@berkeley.edu"
         }
     },
@@ -36,6 +54,12 @@
             "username": "agriffith@berkeley.edu",
             "first_name": "Alison",
             "last_name": "Griffith",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "agriffith@berkeley.edu"
         }
     },
@@ -46,6 +70,12 @@
             "username": "anhaddad@berkeley.edu",
             "first_name": "Alison",
             "last_name": "Haddad",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "anhaddad@berkeley.edu"
         }
     },
@@ -56,6 +86,12 @@
             "username": "amathews@berkeley.edu",
             "first_name": "Alison",
             "last_name": "Mathews",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "amathews@berkeley.edu"
         }
     },
@@ -65,7 +101,12 @@
         "fields": {
             "username": "allegramayer@berkeley.edu",
             "first_name": "Allegra",
-            "last_name": "Mayer",
+            "last_name": "Mayer","is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "allegramayer@berkeley.edu"
         }
     },
@@ -76,6 +117,12 @@
             "username": "ennis.aly@gmail.com",
             "first_name": "Aly",
             "last_name": "Ennis",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "ennis.aly@gmail.com"
         }
     },
@@ -86,6 +133,12 @@
             "username": "anjilean@berkeley.edu",
             "first_name": "Anjile",
             "last_name": "An",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "anjilean@berkeley.edu"
         }
     },
@@ -96,6 +149,12 @@
             "username": "annawysen@berkeley.edu",
             "first_name": "Anna",
             "last_name": "Wysen",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "annawysen@berkeley.edu"
         }
     },
@@ -106,6 +165,12 @@
             "username": "nagaban2@berkeley.edu",
             "first_name": "Anusha",
             "last_name": "Nagabandi",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "nagaban2@berkeley.edu"
         }
     },
@@ -116,6 +181,12 @@
             "username": "charlotteanne.odonnell@gmail.com",
             "first_name": "Charlotte",
             "last_name": "O'Donnell",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "charlotteanne.odonnell@gmail.com"
         }
     },
@@ -126,6 +197,12 @@
             "username": "christy.jarman@berkeley.edu",
             "first_name": "Christy",
             "last_name": "Jarman",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "christy.jarman@berkeley.edu"
         }
     },
@@ -136,6 +213,12 @@
             "username": "danielle.murray99@berkeley.edu",
             "first_name": "Danielle",
             "last_name": "Murray",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "danielle.murray99@berkeley.edu"
         }
     },
@@ -146,6 +229,12 @@
             "username": "dredor@berkeley.edu",
             "first_name": "Devin",
             "last_name": "Redor",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "dredor@berkeley.edu"
         }
     },
@@ -156,6 +245,12 @@
             "username": "ecgood@berkeley.edu",
             "first_name": "Elena",
             "last_name": "Good",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "ecgood@berkeley.edu"
         }
     },
@@ -166,6 +261,12 @@
             "username": "elenamiller@berkeley.edu",
             "first_name": "Elena",
             "last_name": "Miller",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "elenamiller@berkeley.edu"
         }
     },
@@ -176,6 +277,12 @@
             "username": "gbalanon@berkeley.edu",
             "first_name": "Gabrielle",
             "last_name": "Balanon",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "gbalanon@berkeley.edu"
         }
     },
@@ -186,6 +293,12 @@
             "username": "graceflintermann@berkeley.edu",
             "first_name": "Grace",
             "last_name": "Flintermann",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "graceflintermann@berkeley.edu"
         }
     },
@@ -196,6 +309,12 @@
             "username": "hannah.ellis@berkeley.edu",
             "first_name": "Hannah",
             "last_name": "Ellis",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "hannah.ellis@berkeley.edu"
         }
     },
@@ -206,6 +325,12 @@
             "username": "jnguyen95@berkeley.edu",
             "first_name": "Jackelyne",
             "last_name": "Nguyen",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "jnguyen95@berkeley.edu"
         }
     },
@@ -216,6 +341,12 @@
             "username": "janice.chui@berkeley.edu",
             "first_name": "Janice",
             "last_name": "Chui",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "janice.chui@berkeley.edu"
         }
     },
@@ -226,6 +357,12 @@
             "username": "jess.siu@berkeley.edu",
             "first_name": "Jessalyn",
             "last_name": "Siu",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "jess.siu@berkeley.edu"
         }
     },
@@ -236,6 +373,12 @@
             "username": "jsibby3@berkeley.edu",
             "first_name": "Julian",
             "last_name": "Sibby",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "jsibby3@berkeley.edu"
         }
     },
@@ -246,6 +389,12 @@
             "username": "kjcarlson@berkeley.edu",
             "first_name": "Katy",
             "last_name": "Carlson",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "kjcarlson@berkeley.edu"
         }
     },
@@ -256,6 +405,12 @@
             "username": "kimlong@berkeley.edu",
             "first_name": "Kim",
             "last_name": "Long",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "kimlong@berkeley.edu"
         }
     },
@@ -266,6 +421,12 @@
             "username": "krystalching@berkeley.edu",
             "first_name": "Krystal",
             "last_name": "Ching",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "krystalching@berkeley.edu"
         }
     },
@@ -276,6 +437,12 @@
             "username": "alhasan@berkeley.edu",
             "first_name": "Lexi",
             "last_name": "Hasan",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "alhasan@berkeley.edu"
         }
     },
@@ -286,6 +453,12 @@
             "username": "lhmccann@berkeley.edu",
             "first_name": "Lily",
             "last_name": "McCann",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "lhmccann@berkeley.edu"
         }
     },
@@ -296,6 +469,12 @@
             "username": "valentin.luise@gmail.com",
             "first_name": "Luise",
             "last_name": "Valentin",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "valentin.luise@gmail.com"
         }
     },
@@ -306,6 +485,12 @@
             "username": "smithmackensie96@gmail.com",
             "first_name": "Mackensie",
             "last_name": "Smith",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "smithmackensie96@gmail.com"
         }
     },
@@ -316,6 +501,12 @@
             "username": "marisa.rafter@gmail.com",
             "first_name": "Marisa",
             "last_name": "Rafter",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "marisa.rafter@gmail.com"
         }
     },
@@ -326,6 +517,12 @@
             "username": "nguyenmegan@berkeley.edu",
             "first_name": "Megan",
             "last_name": "Nguyen",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "nguyenmegan@berkeley.edu"
         }
     },
@@ -336,6 +533,12 @@
             "username": "petravx@gmail.com",
             "first_name": "Petra",
             "last_name": "Varkonyi",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "petravx@gmail.com"
         }
     },
@@ -346,6 +549,12 @@
             "username": "rebecca_chew@berkeley.edu",
             "first_name": "Rebecca",
             "last_name": "Chew",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "rebecca_chew@berkeley.edu"
         }
     },
@@ -356,6 +565,12 @@
             "username": "Romacree@berkeley.edu",
             "first_name": "Roma",
             "last_name": "Patterson",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "Romacree@berkeley.edu"
         }
     },
@@ -366,6 +581,12 @@
             "username": "sophiagluck@berkeley.edu",
             "first_name": "Sophia",
             "last_name": "Gluck",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "sophiagluck@berkeley.edu"
         }
     },
@@ -376,6 +597,12 @@
             "username": "standun@berkeley.edu",
             "first_name": "Stephanie",
             "last_name": "Tandun",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "standun@berkeley.edu"
         }
     },
@@ -386,6 +613,12 @@
             "username": "sydneyhoranic@gmail.com",
             "first_name": "Sydney",
             "last_name": "Horanic",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "sydneyhoranic@gmail.com"
         }
     },
@@ -396,6 +629,12 @@
             "username": "valerie.lowe@berkeley.edu",
             "first_name": "Valerie",
             "last_name": "Lowe",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "valerie.lowe@berkeley.edu"
         }
     },
@@ -406,6 +645,12 @@
             "username": "vanesng96@gmail.com",
             "first_name": "Vanessa",
             "last_name": "Ng",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "vanesng96@gmail.com"
         }
     },
@@ -416,6 +661,12 @@
             "username": "a943658@gmail.com",
             "first_name": "Yun-Yun,",
             "last_name": "Lin",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "a943658@gmail.com"
         }
     },
@@ -426,6 +677,12 @@
             "username": "megan.pera@gmail.com",
             "first_name": "Megan",
             "last_name": "Pera",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "megan.pera@gmail.com"
         }
     },
@@ -436,6 +693,12 @@
             "username": "miranda.jen@berkeley.edu",
             "first_name": "Miranda",
             "last_name": "Jen",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "miranda.jen@berkeley.edu"
         }
     },
@@ -446,6 +709,12 @@
             "username": "nbuliksullivan@berkeley.edu",
             "first_name": "Natallie",
             "last_name": "Bulik Sullivan",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "nbuliksullivan@berkeley.edu"
         }
     },
@@ -456,6 +725,12 @@
             "username": "mmfarrell@berkeley.edu",
             "first_name": "Mathilda",
             "last_name": "Farrell",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "mmfarrell@berkeley.edu"
         }
     },
@@ -466,6 +741,12 @@
             "username": "taylorkennemore@berkeley.edu",
             "first_name": "Taylor",
             "last_name": "Kennmore",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "taylorkennemore@berkeley.edu"
         }
     },
@@ -476,6 +757,12 @@
             "username": "mediterranean_blue@hotmail.com",
             "first_name": "Megg",
             "last_name": "Mcclarty",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": "mediterranean_blue@hotmail.com"
         }
     },
@@ -486,6 +773,12 @@
             "username": "Slap",
             "first_name": "Manisha",
             "last_name": "Daryani",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": ""
         }
     },
@@ -496,6 +789,12 @@
             "username": "Aman",
             "first_name": "Aman",
             "last_name": "Ahuja",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": ""
         }
     },
@@ -506,6 +805,12 @@
             "username": "Maddog",
             "first_name": "Anna",
             "last_name": "Nazarov",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": ""
         }
     },
@@ -516,6 +821,12 @@
             "username": "Boots",
             "first_name": "Katie",
             "last_name": "Swinnerton",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
             "email": ""
         }
     }
