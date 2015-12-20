@@ -4,9 +4,9 @@
   <div class="span6">
     <div class="name">
       {% if profile.name %}
-        <a href="{% url profile_detail profile.user.username %}">{{ profile.name }} ({% user_display profile.user %})</a>
+        <a href="{% url profile_detail username=profile.user.username %}">{{ profile.name }} ({% user_display profile.user %})</a>
       {% else %}
-        <a href="{% url profile_detail profile.user.username %}">{% user_display profile.user %}</a>
+        <a href="{% url profile_detail username=profile.user.username %}">{% user_display profile.user %}</a>
       {% endif %}
     </div>
     <div class="details">

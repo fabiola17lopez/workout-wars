@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from pinax.apps.account.openid_consumer import PinaxConsumer
-
+from idios.views import ProfileDetailView
 
 handler500 = "pinax.views.server_error"
 
@@ -19,18 +19,19 @@ urlpatterns = patterns("",
     url(r"^about/", include("about.urls")),
     url(r"^account/", include("pinax.apps.account.urls")),
     url(r"^openid/", include(PinaxConsumer().urls)),
-    
+
     #Override profile view before idios include
-    url(r"^profiles/test$", 
-       'workout.views.profiles', 
+    url(r"^profiles/test$",
+       'workout.views.profiles',
        name = "new_profiles_view"),
+    url(r"^profile/(?P<username>[\w\._@-]+)/$", ProfileDetailView.as_view(), name="profile_detail"),
 
     url(r"^profiles/", include("idios.urls")),
     url(r"^notices/", include("notification.urls")),
     url(r"^announcements/", include("announcements.urls")),
 
     url(r"^workouts/", include("workout.urls")),
-    url(r'scoreboard$', 'workout.views.scoreboard', name='scoreboard'), 
+    url(r'scoreboard$', 'workout.views.scoreboard', name='scoreboard'),
     #url(r"^enter_workout$", "workout.views.index", name="workout_home")
   )
 
