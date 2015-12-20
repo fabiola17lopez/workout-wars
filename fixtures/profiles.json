@@ -113,7 +113,7 @@
         "pk": 12,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 12,
             "name": "Charlotte O'Donnell",
             "teams": [1]
@@ -123,7 +123,7 @@
         "pk": 13,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 13,
             "name": "Christy Jarman",
             "teams": [2]
@@ -133,7 +133,7 @@
         "pk": 14,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 14,
             "name": "Danielle Murray",
             "teams": [1]
@@ -183,7 +183,7 @@
         "pk": 19,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 19,
             "name": "Grace Flintermann",
             "teams": [1]
@@ -313,7 +313,7 @@
         "pk": 32,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 32,
             "name": "Marisa Rafter",
             "teams": [2]
@@ -393,7 +393,7 @@
         "pk": 40,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 40,
             "name": "Valerie Lowe",
             "teams": [2]
@@ -463,7 +463,7 @@
         "pk": 47,
         "model": "profiles.profile",
         "fields": {
-            "graduating_class": "Senior",
+            "graduating_class": "SR",
             "user": 47,
             "name": "Taylor Kennmore",
             "teams": [2]
