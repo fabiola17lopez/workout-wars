@@ -37,7 +37,8 @@
     <tbody>
       {% for workout in workouts %}
         <tr>
-          <td><a href="{% url profile_detail workout.user.username %}">{{ workout.user.username}}</a></td>
+          <td><a href="{% url profile_detail workout.user.username %}">
+                  {{ workout.user.profile_set.get.name }}</a></td>
           <td>{{ workout.workout_date}}</td>
           <td>{{ workout.user.profile_set.get.class_str }}</td>
           {# Removed dessert option for winter 2015: <td>{{ workout.user.profile_set.get.dessert_str }}</td>  #}
