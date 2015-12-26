@@ -12,5 +12,12 @@
     "fields": {
       "name": "Drop it like a Squat"
     }
+  }, 
+  {
+    "pk": 3, 
+    "model": "workout.team", 
+    "fields": {
+      "name": "Flying Coaches"
+    }
   }
 ]
