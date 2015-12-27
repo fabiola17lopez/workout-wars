@@ -157,32 +157,32 @@ def _gclass_query(dessert=None):
                     profile__graduating_class__iexact=gclass)
                 )
 
-    iscore = 0
+        iscore = 0
 
-    # Get all workouts for each Year
-    if dessert is not None:
-        q = Workout.objects.filter(
-            user__profile__dessert__iexact=dessert).filter(
-            user__profile__graduating_class__iexact=gclass
-        )
-    else:  # i.e., if dessert is None
-        q = Workout.objects.filter(
-            user__profile__graduating_class__iexact=gclass
-        )
+        # Get all workouts for each Year
+        if dessert is not None:
+            q = Workout.objects.filter(
+                user__profile__dessert__iexact=dessert).filter(
+                user__profile__graduating_class__iexact=gclass
+            )
+        else:  # i.e., if dessert is None
+            q = Workout.objects.filter(
+                user__profile__graduating_class__iexact=gclass
+            )
 
-    # get total workout score for each Year
-    for iworkout in q:
-        iscore += iworkout.score
+        # get total workout score for each Year
+        for iworkout in q:
+            iscore += iworkout.score
 
-    # Normalize scores by n_players in the class
-    # with: iscore / n_players
-    if n_players > 0:
-        normed = float(iscore / n_players)
-    elif n_players == 0:
-        normed = 0
-    class_list.append([gclass, normed])
-    # Tuple with both total and normalized scores
-    class_dict[gclass] = (normed, iscore)
+        # Normalize scores by n_players in the class
+        # with: iscore / n_players
+        if n_players > 0:
+            normed = float(iscore / n_players)
+        elif n_players == 0:
+            normed = 0
+        class_list.append([gclass, normed])
+        # Tuple with both total and normalized scores
+        class_dict[gclass] = (normed, iscore)
 
     return class_list, class_dict
 
