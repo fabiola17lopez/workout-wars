@@ -62,7 +62,10 @@ def indiv(request):
     )
 
 
-def test(request):
+def playerlist(request):
+    """
+    List of players participating, ranked by points
+    """
     pdict = defaultdict(int)
     for ww in Workout.objects.all():
         pdict[ww.user.username] += float(ww.score)

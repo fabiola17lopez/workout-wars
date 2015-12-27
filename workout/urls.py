@@ -8,7 +8,7 @@ urlpatterns = patterns('workout.views',
     url(r'^$', 'index', name='index'),
     url(r'add/$', "add", name='workout_add'),
     url(r'indiv/$', "indiv", name='indiv'),
-    url(r'test/$', "test", name='test'),
+    url(r'playerlist/$', "playerlist", name='playerlist'),
     url(r'stats/$', "stats_view", name='stats'),
 
     #Generic
