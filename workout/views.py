@@ -68,7 +68,8 @@ def playerlist(request):
     """
     pdict = defaultdict(int)
     for ww in Workout.objects.all():
-        pdict[ww.user.username] += float(ww.score)
+        pp = ww.user.profile_set.get()
+        pdict[pp.name] += float(ww.score)
 
     rankedlist = sorted(
         pdict.iteritems(),
