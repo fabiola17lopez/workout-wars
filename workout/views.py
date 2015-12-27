@@ -322,9 +322,8 @@ def stats_view(request):
     stats['n_queens'] = Workout.objects.values('user').distinct().count()
     stats['n_days'] = (date.today() - date(2015, 12, 21)).days
 
-
     return render_to_response(
         'workout/workouts_stats.html',
-        {'stats' : stats},
+        {'stats': stats},
         context_instance=RequestContext(request)
     )
