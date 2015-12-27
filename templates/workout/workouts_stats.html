@@ -1,0 +1,48 @@
+{% extends "site_base.html" %}
+
+{% block head_title %} Stats {% endblock %}
+
+{% block extra_head %}
+
+<style type="text/css">
+
+    table#stats_table{
+        margin: 10px auto; 
+        width: 400px;
+        border: black thin solid; 
+        text-align: center;
+    }
+
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+
+<h1>Summary Statistics</h1>
+
+<div width="100%">
+
+<table id="stats_table">
+    <tr>
+        <th>Number of workouts submitted</th>
+        <th>{{ stats.n_workouts }} workouts</th>
+    </tr>
+
+    <tr>
+        <th>Number of Queens participating<br>
+        (At least 1 workout submitted)</th>
+        <th>{{ stats.n_queens }} queens</th>
+    </tr>
+
+    <tr>
+        <th>Number of days of Workout Wars<br>
+        (Started December 21st 2015)</th>
+        <th>{{ stats.n_days }} days</th>
+    </tr>
+</table>
+
+</div>
+
+{% endblock %}

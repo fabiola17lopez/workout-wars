@@ -4,11 +4,12 @@ from django.views.generic import ListView
 
 from workout.models import Workout
 
-urlpatterns = patterns('workout.views', 
+urlpatterns = patterns('workout.views',
     url(r'^$', 'index', name='index'),
     url(r'add/$', "add", name='workout_add'),
     url(r'indiv/$', "indiv", name='indiv'),
     url(r'test/$', "test", name='test'),
+    url(r'stats/$', "stats_view", name='stats'),
 
     #Generic
     #url(r'add/$', WorkoutCreate.as_view(), name='workout_add'),
@@ -16,8 +17,8 @@ urlpatterns = patterns('workout.views',
         ListView.as_view(
             queryset=Workout.objects.order_by('-workout_date'),
             context_object_name='workouts',
-            template_name='workout/workouts_home.html'), 
-        name='workout_list'), 
+            template_name='workout/workouts_home.html'),
+        name='workout_list'),
 
 
     #reference

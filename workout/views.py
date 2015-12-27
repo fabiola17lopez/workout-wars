@@ -253,10 +253,15 @@ def add(request):
         context_instance=RequestContext(request),
         )
 
+
+"""
+Form Stuff
+"""
+
 from django.forms import ModelForm, ModelChoiceField
 from django.forms.fields import DecimalField, BooleanField, DateField
 # from django.contrib.admin.widgets import AdminDateWidget
-from datetime import datetime
+from datetime import datetime, date
 from django.forms.extras.widgets import SelectDateWidget
 
 
@@ -296,3 +301,26 @@ class WorkoutFormCreate(ModelForm):
     def __init__(self, user=None, *args, **kwargs):
         super(WorkoutFormCreate, self).__init__(*args, **kwargs)
         self._user = user
+
+
+"""
+Stats stuff
+"""
+
+
+def stats_view(request):
+    """
+    Display some very basic statistics
+    """
+    stats = {}
+
+    stats['n_workouts'] = Workout.objects.all().count()
+    stats['n_queens'] = Workout.objects.values('user').distinct().count()
+    stats['n_days'] = (date.today() - date(2015, 12, 21)).days
+
+
+    return render_to_response(
+        'workout/workouts_stats.html',
+        {'stats' : stats},
+        context_instance=RequestContext(request)
+    )
