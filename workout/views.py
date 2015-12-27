@@ -322,6 +322,13 @@ def stats_view(request):
     stats['n_queens'] = Workout.objects.values('user').distinct().count()
     stats['n_days'] = (date.today() - date(2015, 12, 21)).days
 
+    # inefficient (temporary)
+    total_score = 0
+    q = Workout.objects.all()
+    for ww in q:
+        total_score += ww.score
+    stats['n_points'] = total_score
+
     return render_to_response(
         'workout/workouts_stats.html',
         {'stats': stats},
