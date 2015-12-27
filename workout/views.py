@@ -110,12 +110,12 @@ def scoreboard(request):
         q = Workout.objects.filter(
             user__profile__teams__name=team
             )
-    # Get total workout score for each Team.
-    iscore = 0
-    for iworkout in q:
-        iscore += iworkout.score
+        # Get total workout score for each Team.
+        iscore = 0
+        for iworkout in q:
+            iscore += iworkout.score
 
-    team_scores.append([team, iscore])
+        team_scores.append([team, iscore])
 
     return render_to_response(
         'workout/scoreboard.html',
