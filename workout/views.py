@@ -285,7 +285,7 @@ class WorkoutFormCreate(ModelForm):
 
     workout_date = DateField(
         initial=datetime.today,
-        widget=SelectDateWidget(years=(2014, 2015)),
+        widget=SelectDateWidget(years=(2015, 2016)),
         label="Workout Date",
         help_text="When did you do the workout?"
         )
