@@ -115,7 +115,7 @@ def scoreboard(request):
         for iworkout in q:
             iscore += iworkout.score
 
-        team_scores.append([team, iscore])
+        team_scores.append([team, round(iscore)])
 
     return render_to_response(
         'workout/scoreboard.html',
