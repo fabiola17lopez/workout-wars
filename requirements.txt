@@ -1,0 +1,7 @@
+# requirements.txt is a pip requirements file which describes the distributions
+# required by your project to run.
+
+--requirement=requirements/base.txt
+
+# Put project-specific requirements here.
+# See http://pip-installer.org/requirement-format.html for more information.
