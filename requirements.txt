@@ -1,4 +1,4 @@
-requirements.txt is a pip requirements file which describes the distributions
+# requirements.txt is a pip requirements file which describes the distributions
 # required by your project to run.
 
 --requirement=requirements/project.txt
