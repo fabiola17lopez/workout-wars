@@ -7,8 +7,8 @@ import pinax.env
 import os
 import sys
 
-# sys.path.append('/sites/piequeens/')
-# sys.path.append('/sites/piequeens/ENV')
+sys.path.append('/sites/piequeens/')
+sys.path.append('/sites/piequeens/ENV')
 #---------
 
 # setup the environment for Django and Pinax
