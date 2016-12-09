@@ -1,1 +1,1 @@
-web: gunicorn pqworkoutwars.wsgi --log-file -
+web: gunicorn pqworkoutwars.wsgi:application --log-file -
