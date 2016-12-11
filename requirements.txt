@@ -1,6 +1,7 @@
 # requirements.txt is a pip requirements file which describes the distributions
 # required by your project to run.
 
+uwsgi
 --requirement=requirements/project.txt
 
 # Put project-specific requirements here.

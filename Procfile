@@ -1,1 +1,1 @@
-web: uwsgi pqworkoutwars.wsgi --log-file -
+web: uwsgi workoutwars.ini
