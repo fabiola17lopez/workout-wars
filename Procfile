@@ -1,1 +1,1 @@
-web: uwsgi workoutwars.ini
+web: uwsgi uwsgi.ini
