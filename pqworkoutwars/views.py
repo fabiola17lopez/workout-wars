@@ -320,7 +320,7 @@ def stats_view(request):
 
     stats['n_workouts'] = Workout.objects.all().count()
     stats['n_queens'] = Workout.objects.values('user').distinct().count()
-    stats['n_days'] = (date.today() - date(2015, 12, 21)).days
+    stats['n_days'] = (date.today() - date(2016, 12, 19)).days
 
     # inefficient (temporary)
     total_score = 0
