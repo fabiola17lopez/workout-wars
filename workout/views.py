@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.core.exceptions import ObjectDoesNotExist
 # from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 
 # from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # from django.core.urlresolvers import reverse_lazy
@@ -10,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from collections import defaultdict
 from decimal import Decimal
 from django.utils import simplejson
+from datetime import datetime, date, timedelta
 
 from workout.models import Workout, Activity, Team, User
 from apps.profiles.models import Profile
@@ -37,47 +39,95 @@ def index(request):
         context_instance=RequestContext(request)
     )
 
-
-def indiv(request):
-    pdict = defaultdict(int)
+@login_required
+def test(request):
+    """
+    List of players participating, ranked by points and throwing time
+    """
+    pdict = defaultdict(float)
+    tdict = defaultdict(int)
     for ww in Workout.objects.all():
-        pdict[ww.user.username] += float(ww.score)
+        pp = ww.user.profile_set.get()
+        pdict[pp.name] += float(ww.score)
+        if "THROWING" in ww.activity.description:
+            tdict[pp.name] += int(ww.duration * 15)
 
-    pdict = dict(pdict)
-
-    rankedlist = sorted(
-        pdict.iteritems(),
-        key=operator.itemgetter(1),
-        reverse=True)
-
-    userinfo = []
-    for user, score in rankedlist:
-        pp = Profile.objects.filter(user__username__iexact=user)[0]
-        userinfo.append((user, score, pp.class_str(), pp.dessert_str()))
+    rankedlist = [[key, pdict[key], tdict[key]] for key in pdict.keys()]
+    rankedlist = sorted(rankedlist, key=operator.itemgetter(1), reverse=True)
 
     return render_to_response(
+        'workout/workouts_test.html',
+        {'ranked_players': rankedlist},
+        context_instance=RequestContext(request)
+        )
+
+@login_required
+def indiv(request):
+    '''
+    Individual View (for current player):
+    -------------------------------------
+    Shows player statistics:
+    total score, number of workouts, avg score
+
+    Shows trendline of scores per day
+    
+    Shows list of most recent workouts
+    '''
+    # Collect all workouts for current user
+    user_id = request.user.pk
+    workouts = Workout.objects.filter(user=user_id)
+
+    # Total scores per day and overall
+    start_date = date(2016, 12, 19)
+    days_of_ww = (date(2017, 1, 8) - start_date).days
+    day_scores = [[1, 0]]
+    day_dict = defaultdict(float)
+    count = 1
+    total_score = 0
+
+    for i in range(days_of_ww - 1):
+        day_scores.append([i + 2, 0])
+    for ww in workouts:
+        day = (ww.workout_date - date(2016, 12, 19)).days
+        day_dict[ww.workout_date] += float(ww.score)
+        day_scores[day-1][1] += float(ww.score)
+        total_score += float(ww.score)
+
+    total_score = round(total_score,2)
+    day_scores = [[(key - start_date).days + 1, day_dict[key]] for key in sorted(day_dict.keys())]
+
+    num_workouts = workouts.count()
+    average_score = round(total_score/days_of_ww,2)
+    return render_to_response(
         'workout/workouts_indiv.html',
-        {'ranked_players': userinfo},
+        {
+            'workouts': workouts,
+            'day_scores': day_scores,
+            'total_score': total_score,
+            'num_workouts': num_workouts,
+            'average_score': average_score,
+        },
         context_instance=RequestContext(request)
     )
 
 
 def playerlist(request):
     """
-    List of players participating, ranked by points
+    List of players participating, ranked by points and throwing time
     """
-    pdict = defaultdict(int)
+    pdict = defaultdict(float)
+    tdict = defaultdict(int)
     for ww in Workout.objects.all():
         pp = ww.user.profile_set.get()
         pdict[pp.name] += float(ww.score)
+        if "THROWING" in ww.activity.description:
+            tdict[pp.name] += int(ww.duration * 15)
 
-    rankedlist = sorted(
-        pdict.iteritems(),
-        key=operator.itemgetter(1),
-        reverse=True)
+    rankedlist = [[key, pdict[key], tdict[key]] for key in pdict.keys()]
+    rankedlist = sorted(rankedlist, key=operator.itemgetter(1), reverse=True)
 
     return render_to_response(
-        'workout/workouts_indiv.html',
+        'workout/workouts_test.html',
         {'ranked_players': rankedlist},
         context_instance=RequestContext(request)
         )
@@ -107,15 +157,20 @@ def scoreboard(request):
     team_scores = []
 
     for team in all_teams:
+        # Get total number of players on each team
+        n_players = len(
+            User.objects.filter(
+                profile__teams__name=team)
+            )
+        # Get total workout score for each Team.
         q = Workout.objects.filter(
             user__profile__teams__name=team
             )
-        # Get total workout score for each Team.
         iscore = 0
         for iworkout in q:
             iscore += iworkout.score
 
-        team_scores.append([team, int(round(iscore))])
+        team_scores.append([team, int(round(iscore)), int(round(iscore/n_players))])
 
     return render_to_response(
         'workout/scoreboard.html',
@@ -265,7 +320,6 @@ Form Stuff
 from django.forms import ModelForm, ModelChoiceField
 from django.forms.fields import DecimalField, BooleanField, DateField
 # from django.contrib.admin.widgets import AdminDateWidget
-from datetime import datetime, date
 from django.forms.extras.widgets import SelectDateWidget
 
 
@@ -320,14 +374,14 @@ def stats_view(request):
 
     stats['n_workouts'] = Workout.objects.all().count()
     stats['n_queens'] = Workout.objects.values('user').distinct().count()
-    stats['n_days'] = (date.today() - date(2015, 12, 21)).days
+    stats['n_days'] = (date.today() - date(2016, 12, 19)).days
 
     # inefficient (temporary)
     total_score = 0
     q = Workout.objects.all()
     for ww in q:
         total_score += ww.score
-    stats['n_points'] = total_score
+    stats['n_points'] = int(round(total_score))
 
     return render_to_response(
         'workout/workouts_stats.html',

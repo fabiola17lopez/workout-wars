@@ -10,6 +10,7 @@ urlpatterns = patterns('workout.views',
     url(r'indiv/$', "indiv", name='indiv'),
     url(r'playerlist/$', "playerlist", name='playerlist'),
     url(r'stats/$', "stats_view", name='stats'),
+    url(r'test/$', "test", name='test'),
 
     #Generic
     #url(r'add/$', WorkoutCreate.as_view(), name='workout_add'),

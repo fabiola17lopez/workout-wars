@@ -1,36 +1,128 @@
 {% extends "site_base.html" %}
 
-{% block head_title %} List of Workouts{% endblock %}
+{% block head_title %} Individual Statistics {% endblock %}
 
-{% load pagination_tags %}
+{% block extra_head %}
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+<script>
+  $(document).ready(function(){
+      $('#workout-table').dataTable({
+          "aaSorting": [[ 1, "desc" ]],
+          "iDisplayLength": 100
+      });
+    });
+</script>
+
+{% if day_scores %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    // google.charts.load('current', {'packages':['line']});
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Day');
+      data.addColumn('number', 'Score');
+
+      data.addRows({{ day_scores }});
+
+      var options = {
+        title: 'Score per Day of Workout Wars',
+        legend: {position: 'none'},
+        width: 800,
+        height: 500
+      };
+
+      // var chart = new google.charts.Line(document.getElementById('linechart_material'));
+      var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
+
+      chart.draw(data, options);
+    }
+  </script>
+{% endif %}
+
+{% endblock %}
+
+{# {% load pagination_tags %} #}
 
 {% block body %}
+<h1>Individual Progress</h1>
+
+<h3>Workout Statistics</h3>
+{% if not workouts %}
+  <p> log a workout to see your workout stats here </p>
+{% endif %}
+{% if total_score %}
+  <p>Total Number of Points Earned: {{total_score}}</p>
+{% endif %}
+{% if num_workouts %}
+  <p>Total Workouts Submitted: {{num_workouts}}</p>
+{% endif %}
+{% if average_score %}
+  <p>Average Number of Points per Day: {{average_score}}</p>
+{% endif %}
+
+{% if day_scores %}
+<div id="linechart_material" style="width: 900px; height: 500px"></div>
+{% endif %}
+
+{% if workouts %}
+  {# {% autopaginate workouts %} #}
+  <h3>Recent Workouts Completed</h3>
+  <table 
+    id="workout-table"
+    class="table zebra-striped bordered-table condensed-table">
+    <thead>
+      <tr>
+        <th>Queen</th>
+        <th>Workout Date</th>
+        <th>Class</th>
+        {# Removed dessert option for winter 2015: <th>Dessert</th>   #}
+        <th>Activity</th>
+        <th>Workout Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for workout in workouts %}
+        <tr>
+          <td><a href="{% url profile_detail workout.user.username %}">
+                  {{ workout.user.profile_set.get.name }}</a></td>
+          <td>{{ workout.workout_date}}</td>
+          <td>{{ workout.user.profile_set.get.class_str }}</td>
+          {# Removed dessert option for winter 2015: <td>{{ workout.user.profile_set.get.dessert_str }}</td>  #}
+          <td>{{ workout.activity.description }}</td>
+          <td>{{ workout.score }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+
+
+  </table>  
+
+  {#  {% paginate %} #}
+
+{% endif %}
 
 {% if ranked_players %}
-  {# {% autopaginate ranked_players %} #} 
+  {# {% autopaginate workouts %} #}
   <h3>Ranked Players</h3>
   <table 
     id="indiv-table"
     class="table zebra-striped bordered-table condensed-table">
     <thead>
       <tr>
-        <td>Player</td>
-        <td>Total Score to date</td>
-        {# <td>Class</td>  <td>Dessert</td>  #} 
+        <td> a </td>
       </tr>
     </thead>
     <tbody>
-      {% for pl in ranked_players %}
       <tr>
-        <td>{{ pl.0 }}</td>
-        <td>{{ pl.1 }}</td>
-        {#  <td>{{ pl.2 }}</td> <td>{{ pl.3 }}</td> #} 
+        <td> a </td>
       </tr>
-      {% endfor %}
     </tbody>
   </table>
-
-  {#   {% paginate %} #}
 
 {% endif %}
 
@@ -40,123 +132,3 @@
 <p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
 
 {% endblock %}
-
-{% block extra_head %}
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-  <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-          var data_BOTH = google.visualization.arrayToDataTable({{ class_list_BOTH|safe }});
-          //var data_PI = google.visualization.arrayToDataTable({{ class_list_PI|safe }});
-          //var data_TR = google.visualization.arrayToDataTable({{ class_list_TR|safe }});
-        var options = {
-          width: 700,
-          height: 280, 
-          colors: ['purple'],
-          bar: {groupWidth: "95%"},
-          legend: {position: "none" }, 
-          chartArea:{left:95,top:10,width:"90%",height:"85%"},
-          //hAxis: {title: 'Class', titleTextStyle: {color: 'purple'}}
-          };
-
-        //var chart_PI = new google.visualization.ColumnChart(document.getElementById('PI_chart_div'));
-        //chart_PI.draw(data_PI, options);
-        //var chart_TR = new google.visualization.ColumnChart(document.getElementById('TR_chart_div'));
-        //chart_TR.draw(data_TR, options);
-
-        var chart_BOTH = new google.visualization.ColumnChart(document.getElementById('BOTH_chart_div'));
-        chart_BOTH.draw(data_BOTH, options);
-      }
-    </script>
-
-{% endblock %}
-
-{% block body %}
-
-<h1>Scoreboards</h1>
-
-{% if team_scores %}
-<h2>Points Earned by Team</h2>
-<table 
-  class="table zebra-striped bordered-table condensed-table"
-  style="max-width:700px; table-layout : fixed;"
-  >
-  <thead style="font-size:larger">
-    <tr>
-      <th>Team</th>
-      <th>Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for team_name, team_score in team_scores %}
-      <tr>
-      <th>{{ team_name }}</th>
-      <th>{{ team_score }}</th>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endif %}
-
-{% if class_dict_BOTH %}
-  <h2>Points Earned by Year</h2>
-  <p>Total points earned by class, divided by the number of players in that class.</p>
-  <div id="BOTH_chart_div" style="width: 750px; height: 300px;"></div>
-
-<table 
-  class="table zebra-striped bordered-table condensed-table"
-  style="max-width:700px; table-layout : fixed;margin-bottom:2px"
-  >
-  <thead>
-    <tr>
-      <th width=100%>Queens</th>
-    </tr>
-  </thead>
-</table>
-<table 
-  class="table zebra-striped bordered-table condensed-table"
-  style="max-width:700px; table-layout : fixed;"
-  >
-  <thead style="font-size:larger;">
-    <tr>
-      <th></th>
-      <th>Freshmen</th>
-      <th>Sophomores</th>
-      <th>Juniors</th>
-      <th>Seniors</th>
-      <th>Graduate Students</th>
-      <th>Coaches</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Normalized</th>
-      <th>{{ class_dict_BOTH.FR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.SO.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.JR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.SR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.GR.0|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.CO.0|floatformat:2|default:0 }}</th>
-    </tr>
-    <tr>
-      <th>Total</th>
-      <th>{{ class_dict_BOTH.FR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.SO.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.JR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.SR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.GR.1|floatformat:2|default:0 }}</th>
-      <th>{{ class_dict_BOTH.CO.1|floatformat:2|default:0 }}</th>
-    </tr>
-  </tbody>
-</table>
-{% endif %}
-
-<h3>Feeling inspired?</h3>
-<p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
-
-<h3>See recent workouts</h3>
-<p>Look at <a href="{% url workout_list %}">all the hard work you and your teammates are doing</a>.</p>
-{% endblock %}
-

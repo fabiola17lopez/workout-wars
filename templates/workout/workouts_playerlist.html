@@ -1,0 +1,58 @@
+{% extends "site_base.html" %}
+
+{% block head_title %} Ranked Players {% endblock %}
+
+{% block extra_head %}
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+<script>
+  $(document).ready(function(){
+      $('#indiv-table').dataTable({
+          "aaSorting": [[ 1, "desc" ]],
+          "iDisplayLength": 100
+      });
+    });
+</script>
+{% endblock %}
+
+{% load pagination_tags %}
+
+{% block body %}
+
+{% if ranked_players %}
+  {# {% autopaginate ranked_players %} #} 
+  <h3>Ranked Players</h3>
+  <table 
+    id="indiv-table"
+    class="table zebra-striped bordered-table condensed-table">
+    <thead>
+      <tr>
+        <td>Player</td>
+        <td>Total Score to date</td>
+        <td>Throwing Time to date (in mins)</td>
+        {# <td>Class</td>  <td>Dessert</td>  #} 
+      </tr>
+    </thead>
+    <tbody>
+      {% for name, score, throwing in ranked_players %}
+      <tr>
+        <td>{{ name }}</td>
+        <td>{{ score }}</td>
+        <td>{{ throwing }}</td>
+        {#  <td>{{ pl.2 }}</td> <td>{{ pl.3 }}</td> #} 
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {#   {% paginate %} #}
+
+{% endif %}
+
+<div style="clear:both;">
+  <p>&nbsp;</p></div>
+<h3>Feeling inspired?</h3>
+<p>Go work out, and then <a href="{% url workout_add %}">submit your workout! </a></p>
+
+{% endblock %}
+

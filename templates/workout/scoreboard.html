@@ -49,13 +49,15 @@
     <tr>
       <th>Team</th>
       <th>Score</th>
+      <th>Normalized</th>
     </tr>
   </thead>
   <tbody>
-    {% for team_name, team_score in team_scores %}
+    {% for team_name, team_score, norm_score in team_scores %}
       <tr>
       <th>{{ team_name }}</th>
       <th>{{ team_score }}</th>
+      <th>{{ norm_score }}</th>
       </tr>
     {% endfor %}
   </tbody>

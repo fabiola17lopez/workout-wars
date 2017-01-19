@@ -39,27 +39,71 @@ def index(request):
 
 
 def indiv(request):
-    pdict = defaultdict(int)
-    for ww in Workout.objects.all():
-        pdict[ww.user.username] += float(ww.score)
+    """
+    Scoreboard View
+    ---------------
+    Shows the scoreboards.
+    1. Total for each class
+    2. Total for each team
+    """
 
-    pdict = dict(pdict)
+    # Commenting out b/c not using pie/tart distinction in 2015
+    # class_list_PI, class_dict_PI = _gclass_query(dessert = 'PI')
+    # class_list_TR, class_dict_TR = _gclass_query(dessert = 'TR')
+    # ... instead:
+    class_list, class_dict = _gclass_query()
 
-    rankedlist = sorted(
-        pdict.iteritems(),
-        key=operator.itemgetter(1),
-        reverse=True)
+    # For Teams
+    all_teams = [t.name for t in Team.objects.all()]
+    team_scores = []
 
-    userinfo = []
-    for user, score in rankedlist:
-        pp = Profile.objects.filter(user__username__iexact=user)[0]
-        userinfo.append((user, score, pp.class_str(), pp.dessert_str()))
+    for team in all_teams:
+        q = Workout.objects.filter(
+            user__profile__teams__name=team
+            )
+        # Get total workout score for each Team.
+        iscore = 0
+        for iworkout in q:
+            iscore += iworkout.score
+        # Get total number of 
+
+        team_scores.append([team, int(round(iscore))])
 
     return render_to_response(
         'workout/workouts_indiv.html',
-        {'ranked_players': userinfo},
+        {
+            'team_scores': team_scores,
+            # 'class_dict_PI': dict(class_dict_PI),
+            # 'class_list_PI': simplejson.dumps(class_list_PI),
+            # 'class_dict_TR': dict(class_dict_TR),
+            # 'class_list_TR': simplejson.dumps(class_list_TR),
+            'class_dict_BOTH': dict(class_dict),
+            'class_list_BOTH': simplejson.dumps(class_list),
+        },
         context_instance=RequestContext(request)
     )
+    
+    # pdict = defaultdict(int)
+    # for ww in Workout.objects.all():
+    #     pdict[ww.user.username] += float(ww.score)
+
+    # pdict = dict(pdict)
+
+    # rankedlist = sorted(
+    #     pdict.iteritems(),
+    #     key=operator.itemgetter(1),
+    #     reverse=True)
+
+    # userinfo = []
+    # for user, score in rankedlist:
+    #     pp = Profile.objects.filter(user__username__iexact=user)[0]
+    #     userinfo.append((user, score, pp.class_str(), pp.dessert_str()))
+
+    # return render_to_response(
+    #     'workout/workouts_indiv.html',
+    #     {'ranked_players': userinfo},
+    #     context_instance=RequestContext(request)
+    # )
 
 
 def playerlist(request):
@@ -69,7 +113,7 @@ def playerlist(request):
     pdict = defaultdict(int)
     for ww in Workout.objects.all():
         pp = ww.user.profile_set.get()
-        pdict[pp.name] += float(ww.score)
+        pdict[pp.name] += float(ww.score)*10
 
     rankedlist = sorted(
         pdict.iteritems(),

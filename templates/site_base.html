@@ -8,6 +8,7 @@
         <ul>{% spaceless %}
             <li id="tab_profile"><a href="{% url profile_detail user.username %}">{% trans "Profile" %}</a></li>
             {# <li id="tab_notices"><a href="{% url notification_notices %}">{% trans "Notices" %}{% if notice_unseen_count %} ({{ notice_unseen_count }}){% endif %}</a></li> #}
+            <li><a href="{% url indiv %}">Individual</a></li>
             <li><a href="{% url scoreboard %}">Scoreboard</a></li>
             <li><a href="{% url workout_add %}" class="btn primary small">Submit</a></li>
         {% endspaceless %}</ul>
